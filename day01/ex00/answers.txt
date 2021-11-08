@@ -1,0 +1,5 @@
+conda list or python -m pip list
+conda list or python -m pip list
+pip show numpy
+pip install tesseract
+pip freeze > requirement.txt
