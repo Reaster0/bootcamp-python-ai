@@ -9,16 +9,15 @@ def generator(text, sep, option=None):
 	if option == 'ordered':
 		result.sort()
 	if option == 'unique': #WIP
-		result = []
-		seen = set()
-		for item in text:
-    		if item not in seen:
-        		seen.add(item)
-        result.append(item)
+		temp = []
+		for item in result:
+			if item not in temp:
+				temp += [item]
+		result = temp
 	
 	while result:	
 		yield result[0]
 		result.pop(0)
 
-for i in generator("Le Lorem Ipsum est simplement du faux faux texte.", " ", 'unique'):
+for i in generator("Le Lorem est Ipsum est simplement du faux faux texte.", " ", 'unique'):
 	print (i)
