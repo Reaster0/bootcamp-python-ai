@@ -36,7 +36,7 @@ class Vector:
 				result.append(other.values[idY] + self.values[idY])
 		return Vector(result)
 
-	def __radd__(self, other):
+	def __sub__(self, other):
 		result = []
 		assert self.shapes == other.shapes and self.shapes != [1, 1], "the vectors aren't of the same size or it's size 1, 1"
 		for idY in range(len(self.values)):
@@ -56,9 +56,9 @@ class Vector:
 				result.append(self.values[idY] * other.values[idY])
 		return Vector(result)
 		
-	def __mul__(self, other):
+	def __truediv__(self, other):
 		result = []
-		assert self.shapes == other.shapes and self.shapes != [1, 1], "the vectors aren't of the same size or it's size 1, 1"
+		assert self.shapes == other.shapes and self.shapes != [1, 1], "the vectors aren't of the same size or it's size 1, 1" #check zero case
 		for idY in range(len(self.values)):
 			if type(self.values[idY]) == list:
 				result.append([self.values[idY][0] / other.values[idY][0]])
